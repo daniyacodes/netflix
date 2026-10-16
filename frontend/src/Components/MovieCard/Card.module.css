@@ -1,0 +1,19 @@
+/* NOTE: this "*" rule is global (CSS modules only rename classes), so it resets
+   margin/padding for the WHOLE app. Kept from your original file. */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.cardWrapper{
+  width: 100%;       /* fill the Swiper slide */
+  cursor: pointer;
+}
+
+.poster{
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* same shape every time, so nothing looks cut */
+  object-fit: cover;      /* fill the box, crop instead of stretching */
+  border-radius: 6px;
+}

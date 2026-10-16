@@ -1,0 +1,72 @@
+.title {
+  color: white;
+  padding-left: 2px;
+}
+
+.Row {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+/* No side padding anymore: the cards fill the row, the arrows sit on top */
+.Row :global(.swiper) {
+  padding: 0;
+}
+
+.Row :global(.swiper-slide) {
+  height: auto;
+}
+
+/* ---- arrows: full-height strips at the edges ---- */
+.Row :global(.swiper-button-prev),
+.Row :global(.swiper-button-next) {
+  top: 0 !important;
+  margin-top: 0 !important;
+  height: 100% !important;
+  width: 48px !important;
+  z-index: 10;
+  color: white !important;
+  background: rgba(20, 20, 20, 0.55) !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, background 0.25s ease;
+}
+
+.Row :global(.swiper-button-prev) {
+  left: 0 !important;
+  border-radius: 0 6px 6px 0;
+}
+.Row :global(.swiper-button-next) {
+  right: 0 !important;
+  border-radius: 6px 0 0 6px;
+}
+
+/* arrow icon: works for both the old ::after font and the new svg */
+.Row :global(.swiper-button-prev svg),
+.Row :global(.swiper-button-next svg) {
+  width: 22px !important;
+  height: 22px !important;
+}
+.Row :global(.swiper-button-prev::after),
+.Row :global(.swiper-button-next::after) {
+  font-size: 22px !important;
+}
+
+/* show only while hovering the row */
+.Row:hover :global(.swiper-button-prev),
+.Row:hover :global(.swiper-button-next) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.Row :global(.swiper-button-prev:hover),
+.Row :global(.swiper-button-next:hover) {
+  background: rgba(20, 20, 20, 0.85) !important;
+}
+
+/* nothing to scroll in that direction -> hide it (beats the hover rule above) */
+.Row:hover :global(.swiper-button-disabled),
+.Row :global(.swiper-button-disabled) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

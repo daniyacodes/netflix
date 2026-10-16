@@ -1,0 +1,90 @@
+.hoverCard{
+  position: fixed;          /* positioned against the SCREEN, not the slider */
+  z-index: 99999;           /* above every row, the header, everything */
+  background: #141414;
+  border-radius: 8px;
+  overflow: hidden;         /* round corners also clip the picture/video */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9);
+  color: white;
+  animation: pop 0.2s ease-out;
+}
+
+@keyframes pop{
+  from{ transform: scale(0.85); opacity: 0; }
+  to{ transform: scale(1); opacity: 1; }
+}
+
+.media{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: black;
+  cursor: pointer;
+}
+
+.preview{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  pointer-events: none;     /* iframe can't steal the mouse, so onMouseLeave works */
+}
+
+.info{
+  padding: 12px 14px 16px;
+}
+
+.buttonRow{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circleButton{
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.circleButton:hover{
+  transform: scale(1.1);
+}
+.moreInfo{
+  margin-left: auto;
+}
+
+.title{
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metaRow{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #ddd;
+}
+
+.badge{
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.genres{
+  margin-top: 8px;
+  color: #bbb;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.dot{
+  color: #888;
+}
